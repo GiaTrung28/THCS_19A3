@@ -1,10 +1,21 @@
-gia_san_pham = float(input("Nhập giá sản phẩm: "))
-so_luong_mua = int(input("Nhập số lượng mua: "))
+import math
+def kiem_tra_so_chinh_phuong():
+    
+    """Nhập một số và kiểm tra xem nó có phải là số chính phương hay không."""
+    try:
+        n = int(input("Nhập một số nguyên dương: "))
+    except ValueError:
+        print("Đầu vào không hợp lệ. Vui lòng nhập số nguyên.")
+        return
 
-tong_chi_phi = gia_san_pham * so_luong_mua
+    if n < 0:
+        print(f"{n} không phải là số chính phương (số âm).")
+        return
 
-thue_vat = tong_chi_phi * 0.10
+    can_bac_hai_nguyen = int(math.isqrt(n))
 
-tong_tien_phai_tra = tong_chi_phi + thue_vat
+    if can_bac_hai_nguyen * can_bac_hai_nguyen == n:
+        print(f"{n} là số chính phương vì {can_bac_hai_nguyen}^2 = {n}.")
+    else:
+        print(f"{n} không phải là số chính phương.")
 
-print(f"Tổng tiền phải trả: {tong_tien_phai_tra:.2f} VNĐ")

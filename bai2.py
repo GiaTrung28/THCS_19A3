@@ -1,10 +1,17 @@
+def tim_uoc_chung_lon_nhat():
+    """Nhập hai số và tìm ƯCLN của chúng bằng thuật toán Euclidean."""
+    try:
+        a = int(input("Nhập số thứ nhất (a): "))
+        b = int(input("Nhập số thứ hai (b): "))
+    except ValueError:
+        print("Đầu vào không hợp lệ. Vui lòng nhập số nguyên.")
+        return
 
-tong_so_keo = int(input("Nhập tổng số kẹo: "))
-so_hoc_sinh = int(input("Nhập số học sinh: "))
+    a = abs(a)
+    b = abs(b)
 
-keo_moi_hs = tong_so_keo // so_hoc_sinh
+    while b:
+        a, b = b, a % b
+    
+    print(f"Ước chung lớn nhất của {abs(int(input('Nhập số thứ nhất (a): ')))} và {abs(int(input('Nhập số thứ hai (b): ')))} là: {a}")
 
-keo_con_thua = tong_so_keo % so_hoc_sinh
-
-print(f"Số kẹo mỗi học sinh nhận được: {keo_moi_hs} cái")
-print(f"Số kẹo còn thừa: {keo_con_thua} cái")
