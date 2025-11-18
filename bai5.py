@@ -1,14 +1,29 @@
+def tinh_s1(n):
+    return n * (n + 1) // 2
 
-tien_gui_ban_dau = float(input("Nhập số tiền gửi ban đầu (VNĐ): "))
-lai_suat_nam = float(input("Nhập lãi suất hàng năm (%): ")) / 100 
+def tinh_s2(n):
+    if n == 0:
+        return 1
+    tich = 1
+    for i in range(1, n):
+        tich *= i
+    return tich
 
+def tinh_s3(n):
+    tong = 0
+    for i in range(1, n + 1):
+        tong += ((-1)**(i+1)) / i
+    return tong
 
-lai_1_thang = tien_gui_ban_dau * lai_suat_nam * (1/12)
+def tinh_s4(n):
+    tong = 0
+    for k in range(0, n + 1):
+        tong += k / (k + 2)
+    return tong
 
-lai_2_quy = tien_gui_ban_dau * lai_suat_nam * (2/4)
+n = int(input("Nhập n: "))
 
-lai_3_nam = tien_gui_ban_dau * lai_suat_nam * 3
-
-print(f"Số tiền lãi nhận được sau 1 tháng: {lai_1_thang:,.0f} VNĐ")
-print(f"Số tiền lãi nhận được sau 2 quý: {lai_2_quy:,.0f} VNĐ")
-print(f"Số tiền lãi nhận được sau 3 năm: {lai_3_nam:,.0f} VNĐ")
+print("S1 =", tinh_s1(n))
+print("S2 =", tinh_s2(n))
+print("S3 =", tinh_s3(n))
+print("S4 =", tinh_s4(n))

@@ -1,10 +1,15 @@
-gia_san_pham = float(input("Nhập giá sản phẩm: "))
-so_luong_mua = int(input("Nhập số lượng mua: "))
+import math
 
-tong_chi_phi = gia_san_pham * so_luong_mua
-
-thue_vat = tong_chi_phi * 0.10
-
-tong_tien_phai_tra = tong_chi_phi + thue_vat
-
-print(f"Tổng tiền phải trả: {tong_tien_phai_tra:.2f} VNĐ")
+n_str = input("Nhập một số nguyên dương n: ")
+if not n_str.isdigit():
+    print("Đầu vào không hợp lệ. Vui lòng nhập một số nguyên dương.")
+else:
+    n = int(n_str)
+    if n < 0:
+        print("Vui lòng nhập một số nguyên dương.")
+    else:
+        sqrt_n = math.sqrt(n)
+        if sqrt_n.is_integer():
+            print(f"{n} là số chính phương.")
+        else:
+            print(f"{n} không phải là số chính phương.")
